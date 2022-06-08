@@ -1,9 +1,9 @@
-.ProfileSide{
+.postSide{
     display: flex;
-    /* width: 350px; */
     flex-direction: column;
+    align-content: center;
     gap: 1rem;
-    align-items: center;
+    height: 100vh;
+    /* width: 60%; */
     overflow: auto;
-    
 }
