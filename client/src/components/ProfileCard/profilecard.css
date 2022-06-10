@@ -1,4 +1,5 @@
 .profileCard{
+  width: 300px;
     border-radius: 1.5rem;
     display: flex;
     flex-direction: column;
