@@ -5,7 +5,7 @@ import postPic3 from '../img/postpic3.JPG'
 
 export const PostsData = [
     {
-        img: postPic1,
+        img: "https://images.pexels.com/photos/3094215/pexels-photo-3094215.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         name: 'Tzuyu',
         desc: "Happy New Year all friends! #2023",
         likes: 2300,

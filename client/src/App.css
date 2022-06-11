@@ -2,16 +2,16 @@
   --yellow: #f5c32c;
   --orange: #f5c32c;
   --black: #F5FDFF;
-  --gray: rgba(36, 45, 73, 0.65);
+  --gray: #6F7D8A;
   --profileShadow: 0px 4px 17px 2px rgba(0,0,0,0.25);
   --hr-color: #cfcdcd;
   --cardColor: #1B2730;
   --buttonBg: #F5FDFF;
-  --inputColor: rgba(40,52,62,0.07);
+  --inputColor: #28343E;
   --photo: #4cb256;
   --video: #4a4e87;
-  --location: $ef5757;
-  ---schedule: #e1ae4a;
+  --location: #ef5757;
+  --schedule: #e1ae4a;
 
 }
 

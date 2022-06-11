@@ -7,7 +7,7 @@ import InfoCard from '../InfoCard/InfoCard'
 function ProfileLeft() {
   return (
     <div className='ProfileSide'>
-        <LogoSearch/>
+    
         <InfoCard/>
         <FollowersCard/>
     </div>

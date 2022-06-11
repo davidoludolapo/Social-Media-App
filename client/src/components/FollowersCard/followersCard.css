@@ -7,6 +7,8 @@
     display: flex;
     flex-direction: column;
     font-size: 13px;
+    background-color: #1B2730;
+    padding: 20px;
 }
 
 .follower{
@@ -32,6 +34,11 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    
+}
+
+.name>span:nth-of-type(2){
+    color: #6F7D8A;
 }
 
 .fc-button{
