@@ -52,6 +52,7 @@
     border: none;
     outline: none;
     background-color: var(--inputColor);
+    color: white;
     border-radius: 8px;
     padding: 20px;
     flex: 1;
