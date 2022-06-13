@@ -39,9 +39,16 @@ export const login = async (req, res) => {
     if (user) {
       const validity = await bcrypt.compare(password, user.password);
 
-      validity
-        ? res.status(200).json(user)
-        : res.status(400).json("Wrong Password");
+      if(!validity){
+          res.status(400).json("Wrong password")
+      }
+      else{
+        const token = jwt.sign({
+            username: user.username,
+            id: user._id,
+          }, process.env.JWT_KEY, {expiresIn: '1h'});
+          res.status(200).json({user, token})
+      }
     } else {
       res.status(404).json("User does not exist");
     }
