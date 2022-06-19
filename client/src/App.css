@@ -49,6 +49,12 @@
   border: 2px solid var(--orange);
 }
 
+.button:disabled{
+  background: tomato;
+  color: #fff;
+  pointer-events: none;
+}
+
 ::-webkit-scrollbar{
   display: none;
 }

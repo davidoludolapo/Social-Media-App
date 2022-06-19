@@ -10,6 +10,7 @@ import { useState } from "react";
 import ShareModal from "../ShareModal/ShareModal";
 import { HiOutlinePencilAlt } from "react-icons/hi";
 import LogoSearch from "../LogoSearch/LogoSearch";
+import { Link } from "react-router-dom";
 
 function Rightside() {
   const [modalOpened, setModalOpened] = useState(false);
@@ -18,7 +19,10 @@ function Rightside() {
     <div className="icons">
 
      <div className="navIcons">
+     <Link to = '../home'>
+
      <img src={Home} alt="" />
+     </Link>
      </div>
      <div className="navIcons">
      <UilSetting />

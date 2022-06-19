@@ -23,6 +23,10 @@
   width: 1.5rem;
   height: 1.5rem;
 }
+.navIcons > a > img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
 
 .r-button {
   padding: 5px;
