@@ -31,7 +31,10 @@ function Rightside() {
      <img src={Noti} alt="" />
      </div>
      <div className="navIcons">
+     <Link to ='/chat'>
      <img src={Comment} alt="" />
+
+     </Link>
      </div>
       <LogoSearch/>
     </div>
