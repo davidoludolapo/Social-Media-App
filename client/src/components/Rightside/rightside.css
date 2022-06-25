@@ -1,33 +1,28 @@
-.rightSide {
-  /* flex: 2.5; */
+.rightSide{
+  display: flex;
   flex-direction: column;
   gap: 2rem;
-  display: flex;
-  /* align-items: center; */
 }
 
-.icons {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 
-.navIcons {
-  margin-right: 20px;
+.navIcons{
   margin-top: 1rem;
-  justify-content: space-between;
-  cursor: pointer;
   display: flex;
-  align-items: center;
+  justify-content: space-between;
 }
 
-.navIcons > img {
+.navIcons>a>img{
   width: 1.5rem;
   height: 1.5rem;
 }
-.navIcons > a > img {
+
+.navIcons>img{
   width: 1.5rem;
   height: 1.5rem;
+}
+
+.navIcons>img:hover{
+  cursor: pointer;
 }
 
 .r-button {

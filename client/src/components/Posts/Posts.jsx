@@ -1,3 +1,4 @@
+import { CircularProgress } from '@mui/material'
 import React from 'react'
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
@@ -22,8 +23,8 @@ function Posts() {
   if (!posts ) return "no posts" 
   if(params.id) posts = posts.filter((post)=>post.userId === params.id)
   return (
-    <div className='posts' style={{color:"white"}}>
-        {loading ? "Fetching Posts..." :
+    <div className='posts'>
+        {loading ? <CircularProgress style={{color: "#1D9BF0", alignItems:"center", justifyContent:"center"}}/> :
           posts.map((post, id)=>{
             return <Post data={post} id={id}/>
         })}

@@ -11,38 +11,21 @@ import ShareModal from "../ShareModal/ShareModal";
 import { HiOutlinePencilAlt } from "react-icons/hi";
 import LogoSearch from "../LogoSearch/LogoSearch";
 import { Link } from "react-router-dom";
+import { Badge } from "@mui/material";
+import MailIcon from '@mui/icons-material/Mail';
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import HomeIcon from "@mui/icons-material/Home";
 
 function Rightside() {
   const [modalOpened, setModalOpened] = useState(false);
   return (
     <div className="rightSide">
-    <div className="icons">
-
-     <div className="navIcons">
-     <Link to = '../home'>
-
-     <img src={Home} alt="" />
-     </Link>
-     </div>
-     <div className="navIcons">
-     <UilSetting />
-     </div>
-     <div className="navIcons">
-     <img src={Noti} alt="" />
-     </div>
-     <div className="navIcons">
-     <Link to ='/chat'>
-     <img src={Comment} alt="" />
-
-     </Link>
-     </div>
-      <LogoSearch/>
-    </div>
+   
 
       <Trendcard />
 
       <button className="button r-button" onClick={() => setModalOpened(true)}>
-       <HiOutlinePencilAlt size={30}/>
+       <HiOutlinePencilAlt size={30} style={{color:"#1D9BF0"}}/>
       </button>
       <ShareModal modalOpened={modalOpened} setModalOpened={setModalOpened} />
     </div>

@@ -16,7 +16,7 @@ function ProfileCard({ location }) {
           src={
             user.coverPicture
               ? serverPublic + user.coverPicture
-              : serverPublic + "defaultCover.jpg"
+              : serverPublic + "def.png"
           }
           alt=""
         />
@@ -34,7 +34,7 @@ function ProfileCard({ location }) {
         <span>
           {user.firstname} {user.lastname}
         </span>
-        <span>{user.worksAt ? user.worksAt : "Write about yourself"}</span>
+        <span>{user.worksAt ? user.worksAt : "---"}</span>
       </div>
 
       <div className="followStatus">
@@ -68,11 +68,11 @@ function ProfileCard({ location }) {
       ) : (
         <span>
           <Link
-            style={{ textDecoration: "none", color: "inherit" }}
+            style={{ textDecoration: "none", color:"#fff" }}
             to={`/profile/${user._id}`}
           >
-            My Profile{" "}
-          </Link>{" "}
+            My Profile
+          </Link>
         </span>
       )}
     </div>

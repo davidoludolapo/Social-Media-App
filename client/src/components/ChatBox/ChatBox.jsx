@@ -7,16 +7,17 @@ import { getUser } from "../../api/UserRequest";
 import "./ChatBox.css";
 import InputEmoji from "react-input-emoji";
 import { useRef } from "react";
+import { Divider } from "@mui/material";
 
-function ChatBox({ chat, currentUser, setSendMessage, receiveMessage }) {
+function ChatBox({ chat, currentUser, setSendMessage, receiveMessage, online }) {
   const [userData, setUserData] = useState(null);
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
-  const scroll = useRef()
+  const scroll = useRef();
 
-  const handleChange = (newMessage)=> {
-    setNewMessage(newMessage)
-  }
+  const handleChange = (newMessage) => {
+    setNewMessage(newMessage);
+  };
 
   // fetching data for header
   useEffect(() => {
@@ -47,46 +48,39 @@ function ChatBox({ chat, currentUser, setSendMessage, receiveMessage }) {
     if (chat !== null) fetchMessages();
   }, [chat]);
 
-
   // Always scroll to last Message
-  useEffect(()=> {
+  useEffect(() => {
     scroll.current?.scrollIntoView({ behavior: "smooth" });
-  },[messages])
-
-
+  }, [messages]);
 
   // Send Message
-  const handleSend = async(e)=> {
-    e.preventDefault()
+  const handleSend = async (e) => {
+    e.preventDefault();
     const message = {
-      senderId : currentUser,
+      senderId: currentUser,
       text: newMessage,
       chatId: chat._id,
-  }
-  const receiverId = chat.members.find((id)=>id!==currentUser);
-  // send message to socket server
-  setSendMessage({...message, receiverId})
-  // send message to database
-  try {
-    const { data } = await addMessage(message);
-    setMessages([...messages, data]);
-    setNewMessage("");
-  }
-  catch
-  {
-    console.log("error")
-  }
-}
+    };
+    const receiverId = chat.members.find((id) => id !== currentUser);
+    // send message to socket server
+    setSendMessage({ ...message, receiverId });
+    // send message to database
+    try {
+      const { data } = await addMessage(message);
+      setMessages([...messages, data]);
+      setNewMessage("");
+    } catch {
+      console.log("error");
+    }
+  };
 
-// Receive Message from parent component
-useEffect(()=> {
-  console.log("Message Arrived: ", receiveMessage)
-  if (receiveMessage !== null && receiveMessage.chatId === chat._id) {
-    setMessages([...messages, receiveMessage]);
-  }
-
-},[receiveMessage])
-
+  // Receive Message from parent component
+  useEffect(() => {
+    console.log("Message Arrived: ", receiveMessage);
+    if (receiveMessage !== null && receiveMessage.chatId === chat._id) {
+      setMessages([...messages, receiveMessage]);
+    }
+  }, [receiveMessage]);
 
   return (
     <>
@@ -107,20 +101,21 @@ useEffect(()=> {
                     }
                     alt="Profile"
                     className="followerImage"
-                    style={{ width: "50px", height: "50px" }}
+                    style={{ width: "50px", height: "50px", borderRadius: "50%" }}
                   />
                   <div className="name" style={{ fontSize: "0.9rem" }}>
-                    <span>
+                    <span style={{ marginBottom: 5 }}>
                       {userData?.firstname} {userData?.lastname}
                     </span>
+                    <span>{online ? "Online" : "Offline"}</span>
                   </div>
                 </div>
               </div>
-              <hr
+              <Divider
                 style={{
                   width: "95%",
-                  border: "0.1px solid #ececec",
-                  marginTop: "20px",
+                  marginTop: 10,
+                  backgroundColor: "#40514E",
                 }}
               />
             </div>
@@ -128,7 +123,8 @@ useEffect(()=> {
             <div className="chat-body">
               {messages.map((message) => (
                 <>
-                  <div ref={scroll}
+                  <div
+                    ref={scroll}
                     className={
                       message.senderId === currentUser
                         ? "message own"
@@ -149,7 +145,7 @@ useEffect(()=> {
                 Send
               </div>
               <input type="file" name="" id="" style={{ display: "none" }} />
-            </div>{" "}
+            </div>
           </>
         ) : (
           <span className="chatbox-empty-message">

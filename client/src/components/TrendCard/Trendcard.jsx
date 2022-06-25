@@ -9,8 +9,8 @@ function Trendcard() {
         {TrendData.map((trend)=>{
             return  (
                 <div className="trend">
-                    <span>#{trend.name}</span>
-                    <span>#{trend.shares}k shares</span>
+                    <span>#{trend.name} </span>
+                    <span>#{trend.shares}k posts</span>
                 </div>
             )
         })}

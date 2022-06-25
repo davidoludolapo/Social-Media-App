@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { getUser } from "../../api/UserRequest";
+import Divider from "@mui/material/Divider";
 
 function Conversation({ data, currentUserId, online }) {
   const [userData, setUserData] = useState(null);
@@ -21,20 +22,34 @@ function Conversation({ data, currentUserId, online }) {
   }, []);
 
   return (
-      <>
+    <>
       <div className="follower conversation">
-          <div>
-              {online  &&<div className="online-dot"></div>}
-              <img src={userData?.profilePicture? process.env.REACT_APP_PUBLIC_FOLDER + userData.profilePicture : process.env.REACT_APP_PUBLIC_FOLDER + 'defaultProfile.png' } alt="" className="followerImage" style={{width: '50px', height: '50px'}}/>
-              <div className="name" style={{fontSize: "0.8rem"}}>
-                  <span>{userData?.firstname} {userData?.lastname}</span>
-                  <span>{online ? "Online": "Offline"}</span>
-              </div>
+        <div>
+          {online && <div className="online-dot"></div>}
+          <img
+            src={
+              userData?.profilePicture
+                ? process.env.REACT_APP_PUBLIC_FOLDER + userData.profilePicture
+                : process.env.REACT_APP_PUBLIC_FOLDER + "defaultProfile.png"
+            }
+            alt=""
+            className="followerImage"
+            style={{ width: "50px", height: "50px",  borderRadius: "50%" }}
+          />
+          <div className="name" style={{ fontSize: "0.8rem" }}>
+            <span style={{ marginBottom: 5 }}>
+              {userData?.firstname} {userData?.lastname}
+            </span>
+            <span>{online ? "Online" : "Offline"}</span>
           </div>
+        </div>
       </div>
-      <hr style={{ width: "85%", border: "0.1px solid #333" }} />
-      </>
-  )
+      <Divider
+        style={{ width: "100%", maxWidth: 360, backgroundColor: "#40514E", marginTop: "10px" }}
+      />
+      {/* <hr style={{ width: "85%", border: "0.1px solid #333" }} /> */}
+    </>
+  );
 }
 
 export default Conversation;

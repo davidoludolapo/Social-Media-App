@@ -1,6 +1,6 @@
 
 import './App.css';
-import Profile from './components/Profile/Profile';
+import Profile from "./pages/Profile/Profile";
 import Auth from './pages/Auth/Auth';
 import Home from './pages/home/Home';
 import {Routes, Route, Navigate} from 'react-router-dom'

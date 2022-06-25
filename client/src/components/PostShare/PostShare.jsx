@@ -41,7 +41,7 @@ const PostShare = () => {
 
     const newPost = {
       userId: user._id,
-      desc: desc.current.value
+      desc: desc.current.value,
    
     };
     
@@ -98,7 +98,7 @@ const PostShare = () => {
             Shedule
           </div>
           <button className="button ps-button" onClick={handleSubmit} disabled={loading}>
-         {loading ? <CircularProgress size={10} style={{color: "green"}}/> :<HiPencilAlt />}
+         {loading ? <CircularProgress size={10} style={{color: "green"}}/> :<HiPencilAlt style={{color:"#1D9BF0"}}/>}
           </button>
           <div style={{ display: "none" }}>
             <input

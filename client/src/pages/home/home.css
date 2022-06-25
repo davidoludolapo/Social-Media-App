@@ -1,8 +1,11 @@
 .home {
-    position: relative;
-  display: flex;
-  /* grid-template-columns: 18rem auto 20rem; */
+
+  position: relative;
+  display: grid;
+  grid-template-columns: 25rem auto auto;
   gap: 1rem;
+  padding: 20px;
+  
   
 
 }

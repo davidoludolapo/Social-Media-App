@@ -72,6 +72,7 @@ function ProfileModal({ modalOpened, setModalOpened, data }) {
       overlayOpacity={0.55}
       overlayBlur={3}
       size="55%"
+      padding={"50px"}
       opened={modalOpened}
       onClose={() => setModalOpened(false)}
     >

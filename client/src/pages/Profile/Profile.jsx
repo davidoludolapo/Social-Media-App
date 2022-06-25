@@ -1,13 +1,19 @@
 import React from "react";
+import PostSide from "../../components/PostSide/PostSide";
+import ProfileCard from "../../components/ProfileCard/ProfileCard";
+import ProfileLeft from "../../components/ProfileLeft/ProfileLeft";
+import Rightside from "../../components/Rightside/Rightside";
+import Topbar from "../../components/TopBar/TopBar";
 
-import ProfileLeft from "../ProfileLeft/ProfileLeft";
-import Rightside from "../Rightside/Rightside";
+
 import "./profile.css";
-import ProfileCard from "../ProfileCard/ProfileCard";
-import PostSide from "../PostSide/PostSide";
+
 
 function Profile() {
   return (
+    <>
+
+    <Topbar/>
     <div className="profile">
       <ProfileLeft />
 
@@ -17,6 +23,7 @@ function Profile() {
       </div>
       <Rightside />
     </div>
+    </>
   );
 }
 

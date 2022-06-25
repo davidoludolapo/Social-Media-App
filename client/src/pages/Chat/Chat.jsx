@@ -14,6 +14,7 @@ import { UilSetting } from "@iconscout/react-unicons";
 import ChatBox from "../../components/ChatBox/ChatBox";
 import { io } from "socket.io-client";
 import { useRef } from "react";
+import NavIcons from "../../components/NavIcons/NavIvons";
 
 function Chat() {
   const { user } = useSelector((state) => state.authReducer.authData);
@@ -75,8 +76,8 @@ function Chat() {
       <div className="Left-side-chat">
         <LogoSearch />
         <div className="Chat-container">
-          <h2>Chat</h2>
-          <div className="Chart-list">
+          <h2>Chats</h2>
+          <div className="Chat-list">
             {chats.map((chat) => (
               <div onClick={() => setCurrentChat(chat)}>
                 <Conversation data={chat} currentUserId={user._id} online={checkOnlineStatus(chat)}/>
@@ -89,23 +90,7 @@ function Chat() {
       {/* Right side */}
       <div className="Right-side-chat">
         <div style={{ width: "20rem", alignSelf: "flex-end" }}>
-          <div className="icons">
-            <div className="navIcons">
-              <Link to="../home">
-                <img src={Home} alt="" />
-              </Link>
-            </div>
-            <div className="navIcons">
-              <UilSetting />
-            </div>
-            <div className="navIcons">
-              <img src={Noti} alt="" />
-            </div>
-            <div className="navIcons">
-              <Link to="/chat">
-                <img src={Comment} alt="" />
-              </Link>
-            </div>
+          <NavIcons/>
           </div>
           {/* chat body */}
           <ChatBox
@@ -113,10 +98,11 @@ function Chat() {
             currentUser={user._id}
             setSendMessage={setSendMessage}
             receiveMessage={receiveMessage}
+            online={(chat)=>checkOnlineStatus(chat)}
           />
         </div>
       </div>
-    </div>
+
   );
 }
 
